@@ -18,3 +18,4 @@ jobs:
 
       - checkout
       - run: yarn install
+      - run: yarn test 
