@@ -6,8 +6,8 @@ orbs:
       jobs:
         - build
         - deploy_production:
-          requires:
-            - build
+            requires:
+              - build
       
 
 jobs:
