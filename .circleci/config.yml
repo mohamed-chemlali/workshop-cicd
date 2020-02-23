@@ -24,7 +24,7 @@ jobs:
       - run: yarn test 
   deploy_production:
     environment:
-      HEROKU_APP_NAME: workshop-circleci
+      HEROKU_APP_NAME: workshop-cicd
     executor: heroku/default
     steps:
       - checkout
