@@ -1,27 +1,25 @@
+
 version: 2.1
 orbs:
   heroku: circleci/heroku@0.0.10
-  workflows:
-    build_deploy:
-      jobs:
-        - build
-        - deploy_production:
-            requires:
-              - build
-      
+workflows:
+  build_deploy:
+    jobs:
+      - build
+      - deploy_production:
+          requires:
+            - build
 
 jobs:
   build:
     docker:
-
       - image: circleci/node
-
     working_directory: ~/repo
     steps:
-
       - checkout
       - run: yarn install
       - run: yarn test 
+
   deploy_production:
     environment:
       HEROKU_APP_NAME: workshop-cicd
@@ -30,4 +28,4 @@ jobs:
       - checkout
       - heroku/install
       - heroku/deploy-via-git:
-          only-branch: master
+          only-branch: maste
